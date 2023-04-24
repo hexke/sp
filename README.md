@@ -10,13 +10,19 @@ run ```npm run dev``` to open project in development mode
 
 server will open at [localhost:3000](http://localhost:3000/)
 
-### Cennik jednostkowe
+### Ceny jednostkowe
 | usługa | 2023 | 2024 | 2025 |
 |---|---|---|---|
 |internet| 39 | 49 | 59 |
 |telewizja| 49 | 49 | 49 |
 |telefon| 29 | 29 | 29 |
 |dekoder| 29 | 29 | 29 |
+
+### Zniżki
+| zniżka | 2023 | 2024 | 2025 |
+|---|---|---|---|
+|internet + telewizja| 79 | 89 | 99 |
+|internet + telefon| 64 | 64 | 64 |
 
 ### Optymalne ceny
 | opcja | 2023 | 2024 | 2025 |
