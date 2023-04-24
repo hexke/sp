@@ -1,6 +1,6 @@
 import Tariff from "../interfaces/tariff.interface";
 
-export const serviceTariff: Tariff[] = [
+export const tariffs: Tariff[] = [
     {
         'year': '2023',
         'internet': 39,
@@ -65,7 +65,7 @@ export const calculateTariff = (year: string, internet: boolean, television: boo
 };
 
 const calculateTelevisionPromotion = (year: string, phone: boolean) => {
-    const currentTraffi = serviceTariff.find(traffi => traffi.year === year)!;
+    const currentTraffi = tariffs.find(traffi => traffi.year === year)!;
     let total = promotions.find(promotion => promotion.year === year)?.["internet + television"]!;
 
     if (phone) {
@@ -76,7 +76,7 @@ const calculateTelevisionPromotion = (year: string, phone: boolean) => {
 }
 
 const calculatePhonePromotion = (year: string, television: boolean, decoder: boolean) => {
-    const currentTraffi = serviceTariff.find(traffi => traffi.year === year)!;
+    const currentTraffi = tariffs.find(traffi => traffi.year === year)!;
     let total = promotions.find(promotion => promotion.year === year)?.["internet + phone"]!;
 
     if (television) {
@@ -91,7 +91,7 @@ const calculatePhonePromotion = (year: string, television: boolean, decoder: boo
 }
 
 const calculateNoPromotionTariff = (year: string, internet: boolean, television: boolean, phone: boolean, decoder: boolean): number => {
-    const currentTraffi = serviceTariff.find(traffi => traffi.year === year)!;
+    const currentTraffi = tariffs.find(traffi => traffi.year === year)!;
     let total = 0;
 
     if (internet) {

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Tariff from "../interfaces/tariff.interface";
-import { calculateTariff, serviceTariff } from "../utils/tariff";
+import { calculateTariff, tariffs } from "../utils/tariff";
 import Service from "../interfaces/service.interface";
 
 type tarrifOptions = {
@@ -15,7 +15,7 @@ const initialTarrifOptions: tarrifOptions = {
 }
 
 const useTariff = (): [(newYear: string) => void, (newValue: boolean, option: string) => void, Tariff, tarrifOptions, string[], number] => {
-    const [currentTariff, setCurrentTariff] = useState<Tariff>(serviceTariff[0]);
+    const [currentTariff, setCurrentTariff] = useState<Tariff>(tariffs[0]);
     const [options, setOptions] = useState<tarrifOptions>(initialTarrifOptions);
     const [total, setTotal] = useState<number>(0);
 
@@ -24,7 +24,7 @@ const useTariff = (): [(newYear: string) => void, (newValue: boolean, option: st
     }, [options, currentTariff]);
 
     const changeTariffYear = (newYear: string) => {
-        const newTariff = serviceTariff.find(tariff => tariff.year === newYear);
+        const newTariff = tariffs.find(tariff => tariff.year === newYear);
 
         if (!newTariff) return;
 
@@ -37,7 +37,7 @@ const useTariff = (): [(newYear: string) => void, (newValue: boolean, option: st
         setOptions(prev => ({ ...prev, [option]: newValue }));
     }
 
-    const availableYears = serviceTariff.map(tariff => tariff.year);
+    const availableYears = tariffs.map(tariff => tariff.year);
 
     return [changeTariffYear, changeOption, currentTariff, options, availableYears, total];
 }
